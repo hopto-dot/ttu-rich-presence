@@ -18,20 +18,20 @@ To use this extension and server, following the below instructions:
 
 ### Setting Up the Server
 1. **Clone the Repository**
+   
+Download the extension and rich presence server with the following commands:
 ```
+cd "paste the directory where you want to install the repository here"
 git clone https://github.com/hopto-dot/ttu-rich-presence.git
-cd ttu-rich-presence
 ```
 
-2. **Install Dependencies**
-```
-cd server
-npm install
-```
+2. **Run the Server**
 
-3. **Run the Server**
+Go into `ttu-server` and run `run_ttu_server.bat` (Windows only).
 
-Run `run_ttu_server.bat`. OR Start the server:
+**OR**
+
+Start the server using this command:
 ```
 node server.js
 ```
