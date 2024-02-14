@@ -30,7 +30,8 @@ npm install
 ```
 
 3. **Run the Server**
-Start the server:
+
+Run `run_ttu_server.bat`. OR Start the server:
 ```
 node server.js
 ```
