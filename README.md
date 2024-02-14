@@ -16,16 +16,17 @@ To use this extension and server, following the below instructions:
 ### Requirements
 
 - [Node.js](https://nodejs.org/)
-- [Git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads) (optional but recommended)
 
 ### Setting Up the Server
 1. **Clone the Repository**
    
-Download the extension and rich presence server with the following commands:
+[Git method] Download the extension and rich presence server with the following commands:
 ```
-cd "paste the directory where you want to install the repository here"
 git clone https://github.com/hopto-dot/ttu-rich-presence.git
 ```
+
+[Non-git method] Download the source code for the [latest release](https://github.com/hopto-dot/ttu-rich-presence/releases/latest) (zip), unzip it, then place it where you want to store the extension and server.
 
 2. **Run the Server**
 
