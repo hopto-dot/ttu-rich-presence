@@ -5,6 +5,8 @@ The extension displays the book you're reading in your Discord status, along wit
 
 I am not a javascript programmer but I made this extension to fill a gap of missing functionality, feel free to dis my code. And, to the devs of ッツ Ebook Reader, feel free to natively add support for this!
 
+![image](https://github.com/hopto-dot/ttu-rich-presence/assets/66906618/cea310d0-ac03-44d6-b474-9e5a51d69dc1)
+
 ## Getting Started
 
 To use this extension and server, following the below instructions:
