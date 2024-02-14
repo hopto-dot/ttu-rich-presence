@@ -1,4 +1,4 @@
-# ttu rich presence
+# ッツ Rich Presence
 ttu-rich-presence is a chrome extension and accompanying server that adds Discord rich presence support for [ッツ Ebook Reader](https://reader.ttsu.app/).
 
 The extension displays the book you're reading in your Discord status, along with how long you've been reading that book.
