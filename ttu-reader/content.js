@@ -2,7 +2,7 @@ function observeTitleChanges() {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === "childList") {
-        updateDiscordPresence(); // Call your function to update the presence
+        updateDiscordPresence();
       }
     });
   });
@@ -17,7 +17,7 @@ let currentBookId = null;
 let startTime = null;
 
 function getBookIdFromUrl(url) {
-  const match = url.match(/b\?id=(\d+)/); // Assuming book ID is always a number
+  const match = url.match(/b\?id=(\d+)/);
   return match ? match[1] : null;
 }
 
@@ -33,7 +33,7 @@ function updateDiscordPresence() {
     details = title;
 
     if (newBookId !== currentBookId) {
-      startTime = Date.now(); // Reset start time only if the book ID has changed
+      startTime = Date.now();
       startTimestamp = startTime;
       currentBookId = newBookId;
     }
@@ -54,19 +54,19 @@ function updateDiscordPresence() {
     },
     body: JSON.stringify({ details, startTimestamp }),
   })
-  .catch(console.error); // Handle any errors gracefully
+  .catch(console.error); 
 }
 
 if (document.readyState === "complete" || document.readyState === "interactive") {
-  setTimeout(observeTitleChanges, 1); // Start observing changes after the page is fully loaded
+  setTimeout(observeTitleChanges, 1); // Start observing changes once the page is fully loaded
 } else {
   document.addEventListener("DOMContentLoaded", observeTitleChanges);
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.action === "resetTimer") {
-      startTime = Date.now(); // Reset the start time to current
-      updateDiscordPresence(); // Update the presence immediately
+      startTime = Date.now();
+      updateDiscordPresence();
       sendResponse({status: "timerReset"});
   }
 });

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Ebook Reader Discord Presence",
+  "name": "ttu Rich Presence",
   "version": "1.0",
-  "description": "Updates Discord Rich Presence based on ebook reading activity.",
+  "description": "Adds support for Discord rich presence for ッツ Ebook Reader",
   "permissions": ["activeTab", "scripting"],
   "background": {
     "service_worker": "background.js"

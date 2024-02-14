@@ -1,9 +1,9 @@
 const express = require('express');
-const cors = require('cors'); // Import CORS module
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const { Client } = require('discord-rpc');
-const clientId = '1207008423078789140'; // Replace with your Discord Application Client ID
+const clientId = '1207008423078789140';
 
 const rpc = new Client({ transport: 'ipc' });
 let connected = false;
@@ -13,9 +13,7 @@ rpc.on('ready', () => {
   connected = true;
 });
 
-// Use CORS middleware to allow all origins
 app.use(cors());
-
 app.use(express.json());
 
 app.post('/update-presence', (req, res) => {

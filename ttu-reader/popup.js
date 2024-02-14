@@ -1,6 +1,6 @@
 document.getElementById('pauseButton').addEventListener('click', function() {
     const button = document.getElementById('pauseButton');
-    const isPaused = button.textContent.includes("Paused"); // Check if already paused
+    const isPaused = button.textContent.includes("Paused");
     fetch('http://localhost:3000/clear-presence', {
         method: 'POST',
         headers: {
@@ -10,7 +10,7 @@ document.getElementById('pauseButton').addEventListener('click', function() {
     })
     .then(response => {
         if (response.ok) {
-            button.style.backgroundColor = 'lightgrey'; // Lighter grey when paused
+            button.style.backgroundColor = 'lightgrey';
             button.textContent = 'Cleared Rich Presence';
             console.log('Rich presence cleared.');
         }
@@ -19,8 +19,7 @@ document.getElementById('pauseButton').addEventListener('click', function() {
 });
 
 document.getElementById('resetTimerButton').addEventListener('click', function() {
-    // Send a message to content script to reset startTime
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, {action: "resetTimer"});
+        chrome.tabs.sendMessage(tabs[0].id, {action: "resetTimer"}); // Send message to content script to reset startTime
     });
 });
