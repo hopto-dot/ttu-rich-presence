@@ -15,6 +15,7 @@ function observeTitleChanges() {
 
 let currentBookId = null;
 let startTime = null;
+let lastStartTimestamp = null;
 
 function getBookIdFromUrl(url) {
   const match = url.match(/b\?id=(\d+)/);
@@ -25,27 +26,40 @@ function updateDiscordPresence() {
   const url = window.location.href;
   let details = '';
   let newBookId = getBookIdFromUrl(url);
-  let startTimestamp = startTime;
+  let startTimestamp = lastStartTimestamp || startTime;
 
   if (url.startsWith('https://reader.ttsu.app/b?id=')) {
-    console.log("Starts with 'https://reader.ttsu.app/b?id='");
     const title = document.title.split(' | ')[0];
     details = title;
 
     if (newBookId !== currentBookId) {
-      startTime = Date.now();
+      if(currentBookId !== null) {
+        startTime = Date.now(); // Book change, reset the timer
+      }
       startTimestamp = startTime;
       currentBookId = newBookId;
     }
+  
+  // Neither of these else ifs will reset the timer but they do each have their own status
+  } else if (url === 'https://reader.ttsu.app/manage') {
+    details = "Managing books";
+    startTimestamp = null;
+  } else if (url === 'https://reader.ttsu.app/statistics') {
+    details = "Viewing stats";
+    startTimestamp = null;
+  } else if (url === 'https://reader.ttsu.app/statistics') {
+    details = "Viewing stats";
+    startTimestamp = null;
+
   } else {
-    return; // Exit if not on a book reading page
+    return;
   }
 
-  if (details == "ッツ Ebook Reader") {
-    return; // Exit if the title is not correctly fetched
+  if (details === "ッツ Ebook Reader") {
+    return; // The title not correctly fetched
   }
 
-  console.log(`Updating presence to '${details}' with start time`);
+  console.log(`Updating presence to '${details}' with start time: ${startTimestamp}`);
 
   fetch('http://localhost:3000/update-presence', {
     method: 'POST',
@@ -65,8 +79,9 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.action === "resetTimer") {
-      startTime = Date.now();
-      updateDiscordPresence();
-      sendResponse({status: "timerReset"});
+    startTime = Date.now();
+    lastStartTimestamp = null;
+    updateDiscordPresence();
+    sendResponse({status: "timerReset"});
   }
 });
