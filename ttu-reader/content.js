@@ -44,8 +44,8 @@ function updateDiscordPresence() {
   } else if (url === 'https://reader.ttsu.app/manage') {
     details = "Managing books";
     startTimestamp = null;
-  } else if (url === 'https://reader.ttsu.app/statistics') {
-    details = "Viewing stats";
+  } else if (url === 'https://reader.ttsu.app/settings') {
+    details = "In settings";
     startTimestamp = null;
   } else if (url === 'https://reader.ttsu.app/statistics') {
     details = "Viewing stats";
