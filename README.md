@@ -55,7 +55,7 @@ node server.js
 
 ➡ In order to use the extension the server must be running.
    
-- Go to `https://reader.ttsu.app/` and open a book. That book with appear in your Discord rich presence.
+- Go to `https://reader.ttsu.app/` and open a book. That book will appear in your Discord rich presence.
 
 ## Contributing
 
