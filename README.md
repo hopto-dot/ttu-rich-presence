@@ -43,7 +43,7 @@ Start the server using this command:
 node server.js
 ```
 
-➡ The Discord client must be running for the Rich Presence to display. 
+➡ The Discord client (not website version) must be running for the Rich Presence to display. 
 
 ### Setting Up the Extension
 1. **Load the Extension into Chrome**
