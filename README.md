@@ -15,7 +15,7 @@ I am not a javascript programmer but I made this extension to fill a gap of miss
 
 ## Getting Started
 
-To use this extension and server, following the below instructions:
+To use this extension and server, follow the steps below:
 
 ### Requirements
 
